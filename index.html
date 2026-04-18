@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dra. Claudia Fonseca | Clínica de Fonoaudiologia</title>
+    <meta name="description"
+        content="Clínica de Fonoaudiologia. Especialistas em Linguagem Infantil, Voz Profissional e Reabilitação Auditiva. Agende sua consulta.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            200: '#bae0fd',
+                            300: '#7dc5fc',
+                            400: '#38a5f8',
+                            500: '#0c8de9',
+                            600: '#026fcb',
+                            700: '#0358a3',
+                            800: '#074b86',
+                            900: '#0c3f6e',
+                        },
+                        accent: {
+                            500: '#38bdf8', /* Sky */
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Styles & Micro-animations */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .hero-pattern {
+            background-color: #f0f7ff;
+            background-image: radial-gradient(#bae0fd 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Background blobs animation classes (Requires config extension for true Tailwind keyframes, simulated here via static classes for simplicity, but let's just make them static or use CSS keyframes) */
+        @keyframes blob {
+            0% {
+                transform: translate(0px, 0px) scale(1);
+            }
+
+            33% {
+                transform: translate(15px, -25px) scale(1.05);
+            }
+
+            66% {
+                transform: translate(-10px, 10px) scale(0.95);
+            }
+
+            100% {
+                transform: translate(0px, 0px) scale(1);
+            }
+        }
+
+        .animate-blob {
+            animation: blob 7s infinite;
+        }
+
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+
+        .animation-delay-4000 {
+            animation-delay: 4s;
+        }
+
+        @keyframes bounce-slow {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .animate-bounce-slow {
+            animation: bounce-slow 4s ease-in-out infinite;
+        }
+
+        /* Social icon brand hover colors */
+        .social-instagram:hover {
+            background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        .social-linkedin:hover {
+            background-color: #0A66C2;
+        }
+
+        .social-whatsapp:hover {
+            background-color: #25D366;
+        }
+    </style>
+</head>
+
+<body class="font-sans text-slate-800 antialiased selection:bg-primary-200 selection:text-primary-900">
+
+    <!-- Header -->
+    <header class="fixed w-full z-50 transition-all duration-300" id="header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
+                    <div
+                        class="w-10 h-10 rounded-full bg-primary-500 flex items-center justify-center text-white shadow-md">
+                        <i data-lucide="mic-2" class="w-5 h-5"></i>
+                    </div>
+                    <span class="font-heading font-bold text-2xl text-slate-900">Fono<span
+                            class="text-primary-600">Vida</span></span>
+                </div>
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#hero"
+                        class="text-slate-600 hover:text-primary-600 font-medium transition-colors">Início</a>
+                    <a href="#servicos"
+                        class="text-slate-600 hover:text-primary-600 font-medium transition-colors">Serviços</a>
+                    <a href="#sobre"
+                        class="text-slate-600 hover:text-primary-600 font-medium transition-colors">Sobre</a>
+                    <a href="#depoimentos"
+                        class="text-slate-600 hover:text-primary-600 font-medium transition-colors">Depoimentos</a>
+                </nav>
+                <div class="hidden md:block">
+                    <a href="#contato"
+                        class="inline-flex items-center justify-center px-6 py-2.5 border border-transparent rounded-full shadow-sm text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 transition-all hover:shadow-lg hover:-translate-y-0.5">
+                        Agendar Consulta
+                    </a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button class="text-slate-600 hover:text-primary-600 focus:outline-none">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden hero-pattern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-16 items-center">
+                <div class="lg:col-span-6 text-center lg:text-left">
+                    <div
+                        class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-100 text-primary-700 font-medium text-sm mb-6 shadow-sm">
+                        <i data-lucide="heart" class="w-4 h-4"></i>
+                        Cuidado especializado para você
+                    </div>
+                    <h1
+                        class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 mb-6 leading-tight">
+                        Sua voz importa. <br>
+                        <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-accent-500">Comunicação
+                            e bem-estar</span> em primeiro lugar.
+                    </h1>
+                    <p class="mt-4 text-lg sm:text-xl text-slate-600 mb-10 max-w-2xl mx-auto lg:mx-0">
+                        Atendimento fonoaudiológico humanizado e especializado para crianças, adultos e idosos.
+                        Transformando vidas através da comunicação.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#contato"
+                            class="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-white bg-primary-600 border border-transparent rounded-full shadow-md hover:bg-primary-700 hover:shadow-xl transition-all hover:-translate-y-1">
+                            Agendar Consulta
+                            <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+                        </a>
+                        <a href="#servicos"
+                            class="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-slate-700 bg-white border border-slate-200 rounded-full shadow-sm hover:bg-slate-50 transition-all hover:border-slate-300">
+                            Nossos Serviços
+                        </a>
+                    </div>
+                </div>
+                <div class="mt-16 lg:mt-0 lg:col-span-6 relative">
+                    <!-- Decorative Elements -->
+                    <div
+                        class="absolute -top-6 -left-6 w-32 h-32 bg-accent-500 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-blob">
+                    </div>
+                    <div
+                        class="absolute top-1/2 -right-12 w-40 h-40 bg-primary-400 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-blob animation-delay-2000">
+                    </div>
+                    <div
+                        class="absolute -bottom-8 left-1/2 w-32 h-32 bg-primary-600 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-blob animation-delay-4000">
+                    </div>
+
+                    <div
+                        class="relative rounded-3xl overflow-hidden shadow-2xl ring-1 ring-slate-900/10 max-w-lg mx-auto transform transition hover:scale-[1.02] duration-500">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                            alt="Sessão de Fonoaudiologia" class="w-full h-auto object-cover rounded-3xl">
+
+                        <!-- Floating Badge -->
+                        <div
+                            class="absolute bottom-6 -left-4 lg:left-6 glass-card p-4 rounded-2xl shadow-lg flex items-center gap-3 animate-bounce-slow">
+                            <div class="bg-green-100 p-2.5 rounded-full text-green-600 border border-green-200">
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-slate-800">5.0 Estrelas</p>
+                                <p class="text-xs text-slate-500 font-medium">Pacientes satisfeitos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços Section -->
+    <section id="servicos" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-primary-600 font-bold tracking-wider uppercase text-sm mb-3">Especialidades</h2>
+                <h3 class="font-heading text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Como podemos ajudar você?
+                </h3>
+                <p class="text-lg text-slate-600">Oferecemos tratamentos baseados em evidências com uma abordagem
+                    acolhedora e personalizada para cada paciente.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div
+                    class="bg-white rounded-3xl p-8 border border-slate-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] card-hover group relative overflow-hidden">
+                    <div
+                        class="absolute top-0 right-0 w-24 h-24 bg-primary-50 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500">
+                    </div>
+                    <div
+                        class="w-14 h-14 bg-primary-100 text-primary-600 rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
+                        <i data-lucide="baby" class="w-7 h-7"></i>
+                    </div>
+                    <h4 class="font-heading text-xl font-bold text-slate-900 mb-3">Linguagem Infantil</h4>
+                    <p class="text-slate-600 mb-6 line-clamp-3 leading-relaxed">
+                        Avaliação e terapia para atrasos de fala, desvios fonológicos e gagueira em crianças de todas
+                        as idades.
+                    </p>
+                    <a href="#contato"
+                        class="text-primary-600 font-semibold inline-flex items-center group-hover:text-primary-800 transition-colors">
+                        Saber mais <i data-lucide="arrow-right"
+                            class="w-4 h-4 ml-1.5 transform group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                    class="bg-white rounded-3xl p-8 border border-slate-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] card-hover group relative overflow-hidden">
+                    <div
+                        class="absolute top-0 right-0 w-24 h-24 bg-primary-50 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500">
+                    </div>
+                    <div
+                        class="w-14 h-14 bg-primary-100 text-primary-600 rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
+                        <i data-lucide="mic" class="w-7 h-7"></i>
+                    </div>
+                    <h4 class="font-heading text-xl font-bold text-slate-900 mb-3">Voz Profissional</h4>
+                    <p class="text-slate-600 mb-6 line-clamp-3 leading-relaxed">
+                        Aprimoramento vocal e reabilitação de disfonias para professores, cantores e palestrantes.
+                    </p>
+                    <a href="#contato"
+                        class="text-primary-600 font-semibold inline-flex items-center group-hover:text-primary-800 transition-colors">
+                        Saber mais <i data-lucide="arrow-right"
+                            class="w-4 h-4 ml-1.5 transform group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+
+                <!-- Card 3 -->
+                <div
+                    class="bg-white rounded-3xl p-8 border border-slate-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] card-hover group relative overflow-hidden">
+                    <div
+                        class="absolute top-0 right-0 w-24 h-24 bg-primary-50 rounded-bl-full -z-10 group-hover:scale-150 transition-transform duration-500">
+                    </div>
+                    <div
+                        class="w-14 h-14 bg-primary-100 text-primary-600 rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
+                        <i data-lucide="ear" class="w-7 h-7"></i>
+                    </div>
+                    <h4 class="font-heading text-xl font-bold text-slate-900 mb-3">Reabilitação Auditiva</h4>
+                    <p class="text-slate-600 mb-6 line-clamp-3 leading-relaxed">
+                        Treinamento auditivo, adaptação de aparelhos e terapias focadas no processamento auditivo
+                        central (TPAC).
+                    </p>
+                    <a href="#contato"
+                        class="text-primary-600 font-semibold inline-flex items-center group-hover:text-primary-800 transition-colors">
+                        Saber mais <i data-lucide="arrow-right"
+                            class="w-4 h-4 ml-1.5 transform group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Section -->
+    <section id="sobre" class="py-24 bg-primary-50 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:grid lg:grid-cols-2 lg:gap-16 items-center">
+                <div class="relative order-2 lg:order-1 mt-14 lg:mt-0">
+                    <div
+                        class="relative rounded-3xl overflow-hidden shadow-2xl ring-1 ring-slate-900/5 aspect-[4/5] sm:aspect-square lg:aspect-[4/5] w-full max-w-md mx-auto">
+                        <!-- User can replace with actual portrait of the doctor -->
+                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Dra. Nome - Fonoaudióloga" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/0"></div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <span
+                                class="bg-white/90 backdrop-blur text-slate-900 text-sm font-bold px-4 py-2 rounded-lg inline-block shadow-sm">CRFa:
+                                123456-7</span>
+                        </div>
+                    </div>
+                    <!-- Decorative blocks -->
+                    <div
+                        class="hidden md:block absolute -top-10 -left-10 w-40 h-40 bg-white rounded-full opacity-50 shadow-xl -z-10 animate-blob">
+                    </div>
+                    <div
+                        class="hidden md:block absolute -bottom-10 -right-10 w-48 h-48 bg-primary-200 rounded-full opacity-50 shadow-xl -z-10 animate-blob animation-delay-2000">
+                    </div>
+                </div>
+
+                <div class="order-1 lg:order-2">
+                    <h2 class="text-primary-600 font-bold tracking-wider uppercase text-sm mb-3">Conheça a Profissional
+                    </h2>
+                    <h3
+                        class="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-6 leading-tight">
+                        Dra. Claudia Fonseca</h3>
+
+                    <div class="prose prose-lg text-slate-600 prose-p:mb-5 prose-p:leading-relaxed">
+                        <p>
+                            Sou fonoaudióloga apaixonada por transformar vidas através da comunicação. Com mais de 10
+                            anos de experiência clínica, minha missão é oferecer um atendimento acolhedor, humanizado e
+                            firmemente baseado em evidências científicas.
+                        </p>
+                        <p>
+                            Formada pela <strong>USP</strong> e Especialista em <strong>Fonoaudiologia</strong> pela
+                            <strong>UNIFESP</strong>, dedico minha carreira a
+                            ajudar crianças a descobrir o mundo das palavras e adultos a retomarem sua confiança vocal e
+                            auditiva nas atividades diárias e profissionais.
+                        </p>
+                        <p>
+                            Acredito que cada paciente é único. Por isso, elaboro planos de intervenção totalmente
+                            personalizados, trabalhando sempre em parceria com a família, garantindo os melhores
+                            resultados e bem-estar em um ambiente seguro, empático e muito alegre.
+                        </p>
+                    </div>
+
+                    <div class="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+                        <div
+                            class="flex items-center gap-3 bg-white px-5 py-3 rounded-full shadow-sm border border-slate-100">
+                            <div class="bg-primary-100 p-2 rounded-full">
+                                <i data-lucide="award" class="text-primary-600 w-5 h-5"></i>
+                            </div>
+                            <span class="text-slate-800 font-bold text-sm">10+ Anos de Experiência</span>
+                        </div>
+                        <div
+                            class="flex items-center gap-3 bg-white px-5 py-3 rounded-full shadow-sm border border-slate-100">
+                            <div class="bg-primary-100 p-2 rounded-full">
+                                <i data-lucide="users" class="text-primary-600 w-5 h-5"></i>
+                            </div>
+                            <span class="text-slate-800 font-bold text-sm">Centenas de Vidas Transformadas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos Section -->
+    <section id="depoimentos" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-primary-600 font-bold tracking-wider uppercase text-sm mb-3">Histórias de Sucesso</h2>
+                <h3 class="font-heading text-3xl sm:text-4xl font-bold text-slate-900 mb-4">O que dizem nossos pacientes
+                </h3>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Depoimento 1 -->
+                <div
+                    class="bg-slate-50 rounded-2xl p-8 border border-slate-100 shadow-sm relative transition hover:shadow-md">
+                    <i data-lucide="quote" class="absolute top-6 right-6 w-10 h-10 text-primary-100 fill-current"></i>
+                    <div class="flex items-center gap-1 mb-5 text-yellow-400">
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    </div>
+                    <p class="text-slate-700 mb-8 italic leading-relaxed relative z-10">
+                        "O desenvolvimento da fala do meu filho melhorou absurdamente em poucos meses. O atendimento é
+                        super lúdico e ele adora as sessões. A Dra. é um anjo! Recomendo de olhos fechados."
+                    </p>
+                    <div class="flex items-center gap-4 mt-auto">
+                        <div
+                            class="w-12 h-12 rounded-full bg-gradient-to-br from-primary-200 to-primary-300 flex items-center justify-center text-primary-800 font-bold text-lg shadow-inner">
+                            M</div>
+                        <div>
+                            <p class="font-bold text-slate-900">Mariana S.</p>
+                            <p class="text-sm text-slate-500">Mãe do Lucas</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Depoimento 2 -->
+                <div
+                    class="bg-slate-50 rounded-2xl p-8 border border-slate-100 shadow-sm relative transition hover:shadow-md">
+                    <i data-lucide="quote" class="absolute top-6 right-6 w-10 h-10 text-primary-100 fill-current"></i>
+                    <div class="flex items-center gap-1 mb-5 text-yellow-400">
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    </div>
+                    <p class="text-slate-700 mb-8 italic leading-relaxed relative z-10">
+                        "Como professora, eu sofria constantemente com rouquidão e dores. A terapia vocal transformou
+                        não só minha voz, mas minha qualidade de vida no trabalho e em casa de forma incrível."
+                    </p>
+                    <div class="flex items-center gap-4 mt-auto">
+                        <div
+                            class="w-12 h-12 rounded-full bg-gradient-to-br from-green-200 to-green-300 flex items-center justify-center text-green-800 font-bold text-lg shadow-inner">
+                            C</div>
+                        <div>
+                            <p class="font-bold text-slate-900">Camila R.</p>
+                            <p class="text-sm text-slate-500">Professora</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Depoimento 3 -->
+                <div
+                    class="bg-slate-50 rounded-2xl p-8 border border-slate-100 shadow-sm relative transition hover:shadow-md lg:col-start-auto md:col-start-1 md:col-span-2 lg:col-span-1">
+                    <i data-lucide="quote" class="absolute top-6 right-6 w-10 h-10 text-primary-100 fill-current"></i>
+                    <div class="flex items-center gap-1 mb-5 text-yellow-400">
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    </div>
+                    <p class="text-slate-700 mb-8 italic leading-relaxed relative z-10">
+                        "Meus zumbidos me tiravam a paz. Com o treinamento auditivo focado, consegui voltar a ter
+                        conforto. O atendimento foi extremamente acolhedor desde o primeiro dia de consulta."
+                    </p>
+                    <div class="flex items-center gap-4 mt-auto">
+                        <div
+                            class="w-12 h-12 rounded-full bg-gradient-to-br from-accent-200 to-accent-300 flex items-center justify-center text-accent-800 font-bold text-lg shadow-inner">
+                            R</div>
+                        <div>
+                            <p class="font-bold text-slate-900">Roberto T.</p>
+                            <p class="text-sm text-slate-500">Paciente reabilitação</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner CTA Final -->
+    <section class="py-16 bg-primary-600 relative overflow-hidden">
+        <!-- Background elements -->
+        <div
+            class="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-primary-500 rounded-full opacity-50 mix-blend-multiply blur-3xl">
+        </div>
+        <div
+            class="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-primary-700 rounded-full opacity-50 mix-blend-multiply blur-3xl">
+        </div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h2 class="text-3xl sm:text-4xl font-heading font-bold text-white mb-6">Pronto para dar o primeiro passo?
+            </h2>
+            <p class="text-primary-100 text-xl mb-10 max-w-2xl mx-auto">
+                Agende sua avaliação hoje mesmo e descubra como podemos ajudar você ou seu filho a se comunicar melhor.
+            </p>
+            <a href="https://wa.me/5500999999999" target="_blank"
+                class="inline-flex justify-center items-center gap-2 px-8 py-4 bg-white text-primary-700 rounded-full font-bold text-lg transition-all hover:bg-slate-50 hover:shadow-xl hover:-translate-y-1 shadow-lg">
+                <i data-lucide="calendar" class="w-6 h-6"></i>
+                Marcar Minha Consulta
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contato" class="bg-slate-900 text-white pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Branding -->
+                <div class="lg:col-span-1">
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="w-10 h-10 rounded-full bg-primary-500 flex items-center justify-center text-white">
+                            <i data-lucide="mic-2" class="w-5 h-5"></i>
+                        </div>
+                        <span class="font-heading font-bold text-2xl text-white">Fono<span
+                                class="text-primary-400">Vida</span></span>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-8">
+                        Transformando a comunicação e a qualidade de vida com atendimento fonoaudiológico de excelência
+                        e profundamente humanizado.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://instagram.com" target="_blank"
+                            class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary-500 hover:-translate-y-1 transition-all text-slate-300 social-instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-5 h-5 fill-current">
+                                <path
+                                    d="M224.1 141c-63.6 0-115.1 51.5-115.1 115.1S160.5 371.2 224.1 371.2 339.2 319.7 339.2 256.1 287.7 141 224.1 141zm0 190.6c-41.7 0-75.5-33.8-75.5-75.5s33.8-75.5 75.5-75.5 75.5 33.8 75.5 75.5-33.8 75.5-75.5 75.5zm146.4-194.3c0 14.9-12 26.9-26.9 26.9-14.9 0-26.9-12-26.9-26.9s12-26.9 26.9-26.9 26.9 12 26.9 26.9zm76.1 27.2c-.1-54.4-44.3-98.6-98.7-98.7H98.1C43.7 66.8-.5 111 .4 165.4v119.2c.9 54.4 45.1 98.6 99.5 98.7h119.2c54.4-.1 98.6-44.3 98.7-98.7V165.4zM398.8 284c0 79.5-64.5 144-144 144H193.2c-79.5 0-144-64.5-144-144V228c0-79.5 64.5-144 144-144h61.6c79.5 0 144 64.5 144 144v56z" />
+                            </svg>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank"
+                            class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary-500 hover:-translate-y-1 transition-all text-slate-300 social-linkedin">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-5 h-5 fill-current">
+                                <path
+                                    d="M100.28 448H7.4V148.9h92.88zm-46.44-341a53.79 53.79 0 1 1 53.79-53.79 53.79 53.79 0 0 1-53.79 53.79zm394.34 341h-92.68V302.4c0-34.7-12.44-58.4-43.58-58.4-23.78 0-37.9 16-44.14 31.4-2.28 5.5-2.86 13.2-2.86 20.9V448h-92.68s1.24-236.3 0-260.1h92.68v36.9c-.18.3-.44.6-.62.9h.62v-.9c12.3-19 34.28-46.1 83.44-46.1 60.9 0 106.68 39.8 106.68 125.4V448z" />
+                            </svg>
+                        </a>
+                        <a href="https://wa.me/5511945851044" target="_blank"
+                            class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-green-500 hover:-translate-y-1 transition-all text-slate-300 social-whatsapp">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-5 h-5 fill-current">
+                                <path
+                                    d="M380.9 97.1C339-44.9 244.2-44.9 202.3-44.9c-41.9 0-136.7 0-178.6 141.9C-20.1 239.9-20.1 334.7 21.8 376.6c41.9 41.9 136.7 41.9 178.6 0l-41.9-41.9c-20.9 20.9-52.5 20.9-73.4 0-20.9-20.9-20.9-52.5 0-73.4l41.9-41.9c20.9-20.9 52.5-20.9 73.4 0 20.9 20.9 20.9 52.5 0 73.4l-41.9 41.9c41.9 41.9 136.7 41.9 178.6 0 41.9-41.9 41.9-136.7 0-178.6z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Links Rápidos -->
+                <div>
+                    <h4 class="font-heading text-lg font-bold mb-6 text-white">Links Rápidos</h4>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a href="#hero" class="hover:text-primary-400 transition-colors flex items-center gap-2"><i
+                                    data-lucide="chevron-right" class="w-4 h-4"></i> Início</a></li>
+                        <li><a href="#servicos"
+                                class="hover:text-primary-400 transition-colors flex items-center gap-2"><i
+                                    data-lucide="chevron-right" class="w-4 h-4"></i> Serviços</a></li>
+                        <li><a href="#sobre" class="hover:text-primary-400 transition-colors flex items-center gap-2"><i
+                                    data-lucide="chevron-right" class="w-4 h-4"></i> Sobre a Profissional</a></li>
+                        <li><a href="#depoimentos"
+                                class="hover:text-primary-400 transition-colors flex items-center gap-2"><i
+                                    data-lucide="chevron-right" class="w-4 h-4"></i> Depoimentos</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contato -->
+                <div class="lg:col-span-2">
+                    <h4 class="font-heading text-lg font-bold mb-6 text-white">Contatos e Localização</h4>
+                    <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-800">
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <ul class="space-y-5 text-slate-300 text-sm">
+                                <li class="flex items-start gap-4">
+                                    <div class="bg-slate-800 p-2 rounded-lg text-primary-400 mt-0.5"><i
+                                            data-lucide="map-pin" class="w-5 h-5"></i></div>
+                                    <span><strong>Edifício Medical Center</strong><br>Av. Principal, 1000 - Sala
+                                        402<br>Centro, Cidade - UF<br><span
+                                            class="text-xs text-slate-500 mt-1 block">Estacionamento no
+                                            local</span></span>
+                                </li>
+                            </ul>
+                            <ul class="space-y-5 text-slate-300 text-sm">
+                                <li class="flex items-center gap-4">
+                                    <div class="bg-slate-800 p-2 rounded-lg text-primary-400"><i data-lucide="phone"
+                                            class="w-5 h-5"></i></div>
+                                    <span>(11) 3333-3333</span>
+                                </li>
+                                <li class="flex items-center gap-4">
+                                    <div class="bg-slate-800 p-2 rounded-lg text-green-400"><i
+                                            data-lucide="message-circle" class="w-5 h-5"></i></div>
+                                    <span>(11) 94585-1044</span>
+                                </li>
+                                <li class="flex items-center gap-4">
+                                    <div class="bg-slate-800 p-2 rounded-lg text-primary-400"><i data-lucide="mail"
+                                            class="w-5 h-5"></i></div>
+                                    <span>contato@fonovida.com.br</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="pt-8 border-t border-slate-800/80 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-500 text-sm">
+                <p>&copy; 2026 Clínica FonoVida. Todos os direitos reservados.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-slate-300 transition-colors">Termos de Uso</a>
+                    <a href="#" class="hover:text-slate-300 transition-colors">Política de Privacidade</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Initialize Lucide Icons & Scripts -->
+    <script>
+        lucide.createIcons();
+
+        // Navbar scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-sm');
+                header.classList.remove('bg-transparent', 'py-2');
+                header.classList.add('py-0');
+            } else {
+                header.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-sm', 'py-0');
+                header.classList.add('bg-transparent', 'py-2');
+            }
+        });
+    </script>
+</body>
+
+</html>
