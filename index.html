@@ -13,10 +13,11 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;700&display=swap"
         rel="stylesheet">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: 'unsafe-inline' 'unsafe-eval';">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@0.400.0" defer></script>
     <script>
         tailwind.config = {
             theme: {
@@ -503,7 +504,7 @@
             <p class="text-primary-100 text-xl mb-10 max-w-2xl mx-auto">
                 Agende sua avaliação hoje mesmo e descubra como podemos ajudar você ou seu filho a se comunicar melhor.
             </p>
-            <a href="https://wa.me/5500999999999" target="_blank"
+            <a href="https://wa.me/5500999999999" target="_blank" rel="noopener noreferrer"
                 class="inline-flex justify-center items-center gap-2 px-8 py-4 bg-white text-primary-700 rounded-full font-bold text-lg transition-all hover:bg-slate-50 hover:shadow-xl hover:-translate-y-1 shadow-lg">
                 <i data-lucide="calendar" class="w-6 h-6"></i>
                 Marcar Minha Consulta
@@ -529,21 +530,21 @@
                         e profundamente humanizado.
                     </p>
                     <div class="flex gap-4">
-                        <a href="https://instagram.com" target="_blank"
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
                             class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary-500 hover:-translate-y-1 transition-all text-slate-300 social-instagram">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-5 h-5 fill-current">
                                 <path
                                     d="M224.1 141c-63.6 0-115.1 51.5-115.1 115.1S160.5 371.2 224.1 371.2 339.2 319.7 339.2 256.1 287.7 141 224.1 141zm0 190.6c-41.7 0-75.5-33.8-75.5-75.5s33.8-75.5 75.5-75.5 75.5 33.8 75.5 75.5-33.8 75.5-75.5 75.5zm146.4-194.3c0 14.9-12 26.9-26.9 26.9-14.9 0-26.9-12-26.9-26.9s12-26.9 26.9-26.9 26.9 12 26.9 26.9zm76.1 27.2c-.1-54.4-44.3-98.6-98.7-98.7H98.1C43.7 66.8-.5 111 .4 165.4v119.2c.9 54.4 45.1 98.6 99.5 98.7h119.2c54.4-.1 98.6-44.3 98.7-98.7V165.4zM398.8 284c0 79.5-64.5 144-144 144H193.2c-79.5 0-144-64.5-144-144V228c0-79.5 64.5-144 144-144h61.6c79.5 0 144 64.5 144 144v56z" />
                             </svg>
                         </a>
-                        <a href="https://linkedin.com" target="_blank"
+                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
                             class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary-500 hover:-translate-y-1 transition-all text-slate-300 social-linkedin">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-5 h-5 fill-current">
                                 <path
                                     d="M100.28 448H7.4V148.9h92.88zm-46.44-341a53.79 53.79 0 1 1 53.79-53.79 53.79 53.79 0 0 1-53.79 53.79zm394.34 341h-92.68V302.4c0-34.7-12.44-58.4-43.58-58.4-23.78 0-37.9 16-44.14 31.4-2.28 5.5-2.86 13.2-2.86 20.9V448h-92.68s1.24-236.3 0-260.1h92.68v36.9c-.18.3-.44.6-.62.9h.62v-.9c12.3-19 34.28-46.1 83.44-46.1 60.9 0 106.68 39.8 106.68 125.4V448z" />
                             </svg>
                         </a>
-                        <a href="https://wa.me/5511945851044" target="_blank"
+                        <a href="https://wa.me/5511945851044" target="_blank" rel="noopener noreferrer"
                             class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-green-500 hover:-translate-y-1 transition-all text-slate-300 social-whatsapp">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-5 h-5 fill-current">
                                 <path
